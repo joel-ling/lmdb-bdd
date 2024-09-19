@@ -31,7 +31,7 @@ func getNextRecordSet(ctx0 context.Context) (ctx context.Context, e error) {
 		return
 	}
 
-	key, val, e = cursor.Get(key, nil, lmdb.Next)
+	key, val, e = cursor.Get(nil, nil, lmdb.Next)
 	if e != nil {
 		ctx = context.WithValue(ctx, ctxKeyLMDBErr{}, e)
 
